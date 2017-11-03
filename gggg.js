@@ -4,10 +4,12 @@ javascript:(function() {
 		{
 			if (element.childNodes.length > 0) 
 			for (var i = 0; i < element.childNodes.length; i++) {
-				G(element.childNodes[i]);
+			    if(element.childNodes[i].nodeName.toLowerCase() !== 'style' && element.childNodes[i].nodeName.toLowerCase() !== 'script') {
+                    G(element.childNodes[i]);
+                }
 			}
 
-			if (element.nodeType == Node.TEXT_NODE && element.nodeValue != '') {
+            if (element.nodeType === Node.TEXT_NODE && element.nodeValue !== '') {
 				element.textContent = element.textContent.replace(/[a-z]/g, 'g').replace(/[A-Z]/g, 'G');
 			}
 		}
