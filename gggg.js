@@ -8,30 +8,26 @@ javascript:(function () {
       gg.setAttribute(gggg, ggggggg(gg.getAttribute(gggg)));
   }
 
-  window.g = function () {
-    function G(g) {
-      var gggggggGggg = ["style", "script"];
-      var gggggggggg = ["placeholder", "alt", "value", "title"];
+  function G(g) {
+    var gggggggGggg = ["style", "script"];
+    var gggggggggg = ["placeholder", "alt", "value", "title"];
 
-      if (g.childNodes.length > 0) {
-        g.childNodes.forEach(function (gggg) {
-          if (gggggggGggg.indexOf(gggg.nodeName.toLowerCase()) === -1) {
-            G(gggg);
-          }
-        })
-      }
-
-      if (g.nodeType === Node.TEXT_NODE && g.nodeValue !== '') {
-        g.textContent = ggggggg(g.textContent);
-      } else {
-        gggggggggg.forEach(function (gggg) {
-          ggGgggggggg(gggg, g);
-        });
-      }
+    if (g.childNodes.length > 0) {
+      g.childNodes.forEach(function (gggg) {
+        if (gggggggGggg.indexOf(gggg.nodeName.toLowerCase()) === -1) {
+          G(gggg);
+        }
+      })
     }
 
-    var html = document.getElementsByTagName('html')[0];
-    G(html);
-  };
-  g();
+    if (g.nodeType === Node.TEXT_NODE && g.nodeValue) {
+      g.textContent = ggggggg(g.textContent);
+    } else {
+      gggggggggg.forEach(function (gggg) {
+        ggGgggggggg(gggg, g);
+      });
+    }
+  }
+
+  G(document.getElementsByTagName("html")[0]);
 })();
