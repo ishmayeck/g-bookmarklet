@@ -1,15 +1,32 @@
 javascript:(function () {
+  function ggggggg(g) {
+    return g.replace(/[a-z]/g, 'g').replace(/[A-Z]/g, 'G');
+  }
+
+  function ggGgggggggg(gggg, gg) {
+    if (gg.getAttribute && gg.getAttribute(gggg))
+      gg.setAttribute(gggg, ggggggg(gg.getAttribute(gggg)));
+  }
+
   window.g = function () {
     function G(g) {
-      if (g.childNodes.length > 0)
-        for (var i = 0; i < g.childNodes.length; i++) {
-          if (g.childNodes[i].nodeName.toLowerCase() !== 'style' && g.childNodes[i].nodeName.toLowerCase() !== 'script') {
-            G(g.childNodes[i]);
+      var gggggggGggg = ["style", "script"];
+      var gggggggggg = ["placeholder", "alt", "value", "title"];
+
+      if (g.childNodes.length > 0) {
+        g.childNodes.forEach(function (gggg) {
+          if (gggggggGggg.indexOf(gggg.nodeName.toLowerCase()) === -1) {
+            G(gggg);
           }
-        }
+        })
+      }
 
       if (g.nodeType === Node.TEXT_NODE && g.nodeValue !== '') {
-        g.textContent = g.textContent.replace(/[a-z]/g, 'g').replace(/[A-Z]/g, 'G');
+        g.textContent = ggggggg(g.textContent);
+      } else {
+        gggggggggg.forEach(function (gggg) {
+          ggGgggggggg(gggg, g);
+        });
       }
     }
 
